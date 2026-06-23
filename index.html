@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>免費線上 SRT 轉 VTT 字幕轉換器 | 100% 本地安全、批次快速轉檔</title>
+    <meta name="description" content="最安全的線上 SRT 轉 WebVTT 字幕轉換工具。採用純前端技術，您的字幕檔案完全在瀏覽器本地端完成轉換，絕不上傳伺服器，100% 保護影片隱私。支援拖放與批次快速轉檔。">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome 圖示 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 頂部導航 -->
+    <header class="app-header">
+        <div class="header-bg-gradient"></div>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fa-solid fa-closed-captioning logo-icon"></i>
+                <span class="logo-text">CaptionSafe</span>
+            </div>
+            <h1>免費線上 SRT 轉 VTT 轉換器</h1>
+            <p class="subtitle">100% 瀏覽器本地運作，檔案不上傳伺服器，安全、隱密、極速轉換</p>
+        </div>
+    </header>
+
+    <main class="container main-content">
+        <!-- 安全宣告橫幅 -->
+        <div class="card security-banner animate-fade-in">
+            <div class="security-flex">
+                <i class="fa-solid fa-shield-halved security-icon"></i>
+                <div class="security-text">
+                    <strong>隱私安全宣告：</strong> 您的字幕檔案 **只會在您的瀏覽器本地處理**，絕對不會被上傳至任何雲端伺服器。即使在斷網狀態下，本工具依然可以完全正常運作。
+                </div>
+            </div>
+        </div>
+
+        <!-- 檔案上傳與轉換區 -->
+        <section class="card upload-card animate-fade-in delay-100">
+            <div class="dropzone" id="drop-zone">
+                <i class="fa-solid fa-cloud-arrow-up drop-icon"></i>
+                <h3>將 SRT 字幕檔案拖曳到此處</h3>
+                <p class="drop-hint">或點選此處瀏覽手機或電腦中的檔案</p>
+                <input type="file" id="file-input" accept=".srt" multiple style="display: none;">
+            </div>
+
+            <!-- 已選擇檔案列表 -->
+            <div class="file-list-container" id="file-list-box" style="display: none;">
+                <h4 class="list-title">待轉換檔案 (<span id="file-count">0</span>)</h4>
+                <div class="file-items" id="file-items-list">
+                    <!-- 檔案項目動態插入 -->
+                </div>
+                <div class="batch-actions">
+                    <button class="btn btn-primary" id="btn-convert-all">
+                        <i class="fa-solid fa-bolt"></i> 開始批次轉換並下載
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 預覽與下載成功面板 (預設隱藏) -->
+        <section class="card preview-card animate-fade-in delay-200" id="preview-section" style="display: none;">
+            <div class="preview-header">
+                <h2 class="card-title"><i class="fa-solid fa-eye text-accent"></i> 轉換預覽：<span id="preview-filename">filename.vtt</span></h2>
+                <button class="btn btn-secondary btn-sm" id="btn-download-preview">
+                    <i class="fa-solid fa-download"></i> 下載單一檔案
+                </button>
+            </div>
+            <div class="preview-box">
+                <pre id="preview-content">VTT 內容將在此處顯示...</pre>
+            </div>
+        </section>
+
+        <!-- SEO FAQ 常見問題問答區 -->
+        <section class="card faq-card animate-fade-in delay-300">
+            <h2 class="card-title"><i class="fa-solid fa-circle-question text-accent"></i> SRT 與 WebVTT 字幕格式常見問答 (FAQ)</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h3 class="faq-question">Q1：SRT 與 VTT 字幕格式有什麼差別？</h3>
+                    <div class="faq-answer">
+                        *   **SRT (SubRip Text)**：是最悠久、相容性最高的字幕格式，常用於離線播放器（如 VLC、KMPlayer）或 YouTube 影片上傳。
+                        *   **WebVTT (Web Video Text Tracks, .vtt)**：是 W3C 專門為 HTML5 `<video>` 網頁播放器設計的標準格式。它支援 CSS 樣式設定、文字對齊，且微秒分隔符使用的是點號 `.` 而非 SRT 的逗號 `,`。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">Q2：為什麼網頁播放器播放影片時，SRT 字幕無法顯示？</h3>
+                    <div class="faq-answer">
+                        現代網頁瀏覽器的原生播放器（`<video>` 標籤）不支援直接讀取 `.srt` 檔案。您必須先將字幕轉換為 `.vtt`（WebVTT）格式，才能在網頁上順利播放並正常顯示字幕軌。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">Q3：本工具的轉換原理是什麼？為什麼不需要上傳檔案？</h3>
+                    <div class="faq-answer">
+                        本工具使用 HTML5 File Reader API。當您選擇檔案時，瀏覽器會直接讀取該檔案的文字內容，並透過 JavaScript 演算法：
+                        1. 在檔案開頭加上 `WEBVTT` 檔頭。
+                        2. 將所有時間格式中的逗號（例如 `00:01:23,450`）取代為點號（`00:01:23.450`）。
+                        這些程序都在您的本機 CPU 內執行，檔案完全沒有傳輸至任何雲端，因此速度極快且擁有 absolute 的隱私安全性。
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 頁尾 -->
+    <footer class="app-footer">
+        <div class="container">
+            <p>© 2026 CaptionSafe. 專為創作者與網頁開發者設計的本地安全字幕轉換工具。</p>
+            <p class="github-badge">託管於 GitHub Pages | 100% 免費無廣告追蹤</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript 邏輯 -->
+    <script src="app.js"></script>
+</body>
+</html>
