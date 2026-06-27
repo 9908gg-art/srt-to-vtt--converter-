@@ -74,7 +74,7 @@ body {
 /* 頁首 Header */
 .app-header {
     position: relative;
-    padding: 50px 0 30px;
+    padding: 20px 0 10px;
     text-align: center;
     background: radial-gradient(circle at 50% 0%, rgba(217, 70, 239, 0.12) 0%, transparent 60%);
 }
@@ -83,9 +83,9 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    margin-bottom: 14px;
+    margin-bottom: 6px;
     background: rgba(139, 92, 246, 0.08);
-    padding: 6px 16px;
+    padding: 3px 10px;
     border-radius: 50px;
     border: 1px solid var(--border-color);
 }
@@ -103,7 +103,7 @@ body {
 }
 
 .app-header h1 {
-    font-size: 2.25rem;
+    font-size: 1.7rem;
     font-weight: 700;
     margin-bottom: 10px;
     background: linear-gradient(135deg, #ffffff 40%, #c084fc 100%);
@@ -113,7 +113,7 @@ body {
 
 .app-header .subtitle {
     color: var(--text-secondary);
-    font-size: 1rem;
+    font-size: 0.85rem;
     max-width: 500px;
     margin: 0 auto;
 }
@@ -131,10 +131,10 @@ body {
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-md);
-    padding: 24px;
+    padding: 12px 16px;
     box-shadow: var(--shadow-md);
     transition: var(--transition-smooth);
-    margin-bottom: 24px;
+    margin-bottom: 12px;
 }
 
 .card:hover {
@@ -143,9 +143,9 @@ body {
 }
 
 .card-title {
-    font-size: 1.15rem;
+    font-size: 0.95rem;
     font-weight: 600;
-    margin-bottom: 16px;
+    margin-bottom: 8px;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -160,16 +160,16 @@ body {
 .security-flex {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 10px;
 }
 
 .security-icon {
-    font-size: 1.75rem;
+    font-size: 1.3rem;
     color: var(--color-success);
 }
 
 .security-text {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: #e2e8f0;
 }
 
@@ -181,7 +181,7 @@ body {
 .dropzone {
     border: 2px dashed rgba(139, 92, 246, 0.3);
     border-radius: var(--radius-sm);
-    padding: 50px 20px;
+    padding: 24px 10px;
     text-align: center;
     cursor: pointer;
     background: rgba(255, 255, 255, 0.01);
@@ -199,9 +199,9 @@ body {
 }
 
 .drop-icon {
-    font-size: 3rem;
+    font-size: 2rem;
     color: var(--color-primary);
-    margin-bottom: 16px;
+    margin-bottom: 8px;
     transition: var(--transition-smooth);
 }
 
@@ -212,9 +212,9 @@ body {
 }
 
 .dropzone h3 {
-    font-size: 1.15rem;
+    font-size: 0.95rem;
     font-weight: 600;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
 }
 
 .drop-hint {
@@ -224,15 +224,15 @@ body {
 
 /* 檔案列表清單 */
 .file-list-container {
-    margin-top: 24px;
+    margin-top: 12px;
     border-top: 1px solid var(--border-color);
-    padding-top: 20px;
+    padding-top: 10px;
 }
 
 .list-title {
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     font-weight: 600;
-    margin-bottom: 12px;
+    margin-bottom: 6px;
 }
 
 .file-items {
@@ -249,7 +249,7 @@ body {
     justify-content: space-between;
     align-items: center;
     background: rgba(255, 255, 255, 0.02);
-    padding: 12px 16px;
+    padding: 6px 10px;
     border-radius: var(--radius-sm);
     border: 1px solid rgba(255, 255, 255, 0.03);
 }
@@ -318,7 +318,7 @@ body {
     border: 1px solid var(--border-color);
     border-radius: var(--radius-sm);
     padding: 16px;
-    height: 300px;
+    height: 200px;
     overflow-y: auto;
 }
 
@@ -358,9 +358,9 @@ body {
     align-items: center;
     justify-content: center;
     gap: 8px;
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     font-weight: 600;
-    padding: 12px 24px;
+    padding: 8px 16px;
     border-radius: var(--radius-sm);
     border: none;
     cursor: pointer;
@@ -400,12 +400,12 @@ body {
 .faq-list {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 12px;
 }
 
 .faq-item {
     border-bottom: 1px solid var(--border-color);
-    padding-bottom: 16px;
+    padding-bottom: 8px;
 }
 
 .faq-item:last-child {
@@ -414,13 +414,13 @@ body {
 }
 
 .faq-question {
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 600;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
 }
 
 .faq-answer {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: var(--text-secondary);
 }
 
